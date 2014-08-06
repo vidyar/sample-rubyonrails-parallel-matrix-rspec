@@ -1,0 +1,27 @@
+language: ruby
+rvm:
+  - 1.9.3
+
+addons:
+  firefox: "28.0"
+services:
+  - selenium
+
+env:
+  global:
+    - DISPLAY=:99.0
+    - CI_REPORTS=shippable/testresults COVERAGE_REPORTS=shippable/codecoverage
+  matrix:
+    - TEST_GROUP=1of3
+    - TEST_GROUP=2of3
+    - TEST_GROUP=3of3
+
+before_script: 
+  - psql -c 'create database "sample-rubyonrails-postgres-heroku_test";' -U postgres
+  - /etc/init.d/xvfb start 
+
+script:
+  - rspec spec/suite.rb
+
+after_script:
+  - /etc/init.d/xvfb stop
