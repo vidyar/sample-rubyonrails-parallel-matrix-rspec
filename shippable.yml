@@ -16,6 +16,8 @@ env:
     - TEST_GROUP=2of3
     - TEST_GROUP=3of3
 
+parallelized_test : true
+
 before_script: 
   - psql -c 'create database "sample-rubyonrails-postgres-heroku_test";' -U postgres
   - /etc/init.d/xvfb start 
