@@ -25,6 +25,6 @@ before_script:
 
 script:
   - rspec spec/suite.rb
-
+build_image: shippable/minv2
 after_script:
   - /etc/init.d/xvfb stop
