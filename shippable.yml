@@ -4,6 +4,9 @@ rvm:
 
 addons:
   firefox: "28.0"
+  selenium: "2.43"
+
+
 services:
   - selenium
 parallelized_test: true
