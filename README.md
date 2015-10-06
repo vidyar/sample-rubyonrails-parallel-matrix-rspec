@@ -1,3 +1,5 @@
+
+
 Sample for Rails application with running tests in parallel
 ===========================================================
 
