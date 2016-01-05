@@ -1,5 +1,5 @@
 language: ruby
-
+build_image: drydock/u14ruball:tip
 
 rvm:
   - 1.9.3
@@ -12,7 +12,7 @@ addons:
   selenium: "2.43"
 services:
   - selenium
-parallelized_test: true
+
 
 env:
   global:
@@ -26,10 +26,10 @@ env:
 
 before_script: 
   - psql -c 'create database "sample-rubyonrails-postgres-heroku_test";' -U postgres
-  - /etc/init.d/xvfb start 
+ # - /etc/init.d/xvfb start 
 
 script:
   - rspec spec/suite.rb
 
 after_script:
-  - /etc/init.d/xvfb stop
+  #- /etc/init.d/xvfb stop
